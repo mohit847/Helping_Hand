@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>form</title>
+<meta name="report" content="complaint">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin:1;
+ background-color:#e6f0ff;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.footer2{
+background-color:#000000;
+padding 50px 20px
+}
+p2{color: white; margin-top:10px; margin-bottom:10px;  font-family: "Times New Roman" letter-spacing: 3px;}
+    
+</style>
+</head>
+<body>
+
+<center><h1>COMPLAINT PAGE</h1></center><hr>
+<marquee><p>Follow us on facebookpage for more information</p></marquee>
+ <fieldset>
+ <legend>Personal info:</legend>
+<form  name="myForm" onsubmit="return(validate());">
+    <label for="fname">First name:</label>
+    <input type="text" id="t1" name="fname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="t2" name="lname"><br><br>
+    <label for="email">Email - id :</label>
+    <input type="email" id="t3" name="email"><br><br>
+    <label for="mobile">contact no:</label>
+    <input type="mobile" id="t4" name="mobile"><br><br>
+	<p> Gender</p>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">male</label></br>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">female</label></br>
+<input type="radio" id="other" name="gender" value="other">
+<label for="other">other</label></br></br></br>
+</fieldset><br><br>
+ 
+<fieldset>
+  <legend>Address info:</legend>
+  <label for="state"> State</label>
+  <input type="text" id="t5" name="state"></br></br>
+  <label for="District"> District:</label>
+  <input type="text" id=t6" name="District"></br></br>
+  <label for="street"> street</label>
+  <input type="text" id="street" name="street"></br></br>
+  <label for="Locality">Locality:</label>
+  <input type="text" id="Locality" name="Locality"></br></br>
+ <label for="house no">House no:</label>
+  <input type="numbers" id="num" name="House no"></br></br> 
+<label for="Pin-code">Pin-code :</label>
+  <input type="numbers" id="t7" name="Pin-code"></br></br>
+ </fieldset></br></br>
+
+<fieldset>
+<legend>About complaine:</legend>
+  <label for="type"> Type of complain:</label></br></br>
+  <input type="text" id="Type" name="Type"></br></br>
+  <p>Image regarding complain</p>
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+<p>Vedio regarding complain</p>
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+</fieldset><br><br>
+
+<fieldset>
+<label for="subject">complain info in short</label>
+ <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+</fieldset></br></br>
+<center> <input type="submit" value="Submit"><center>
+</form>
+<div class="footer2">
+<hr>
+<center><p2>Helping Hands Foundation © 2021 | All Rights Reserved | Designed by cse326 </p2></center>
+</div>
+
+  <script>
+         function validate()
+      {
+      
+         if( document.getElementById("t1").value== "" )
+         {
+            alert( "Please provide your first name!" );
+            document.getElementById("t1").focus() ;
+            return false;
+         }
+       if( document.getElementById("t2").value== "" )
+         {
+            alert( "Please provide your last name!" );
+            document.getElementById("t2").focus() ;
+            return false;
+         }
+          var emailID = document.getElementById("t2").value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");       
+         if (document.getElementById("t3").value == "" || atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter correct email ID")
+            document.getElementById("t3").focus() ;
+            return false;
+         }
+    if( document.getElementById("t4").value == "" )
+         {
+            alert( "Please provide your Mobile number" );
+document.getElementById("t4").focus() ;
+            return false;
+         }
+if( isNaN(document.getElementById("t4").value ))
+         {
+            alert( "It's not a valid number" );
+document.getElementById("t4").focus() ;
+            return false;
+         }
+if( document.getElementById("t4").value.length<10 )
+         {
+            alert( "Please provide valid Mobile number" );
+document.getElementById("t4").focus() ;
+            return false;
+         }
+ if( document.getElementById("t5").value== "" )
+         {
+            alert( "Please provide state!" );
+            document.getElementById("t5").focus() ;
+            return false;
+         }
+       if( document.getElementById("t6").value== "" )
+         {
+            alert( "Please provide district!" );
+            document.getElementById("t6").focus() ;
+            return false;
+                
+         if( document.getElementById("t7").value == "")
+         {
+            alert( "Please provide a pin-code." );
+            document.getElementById("t7").focus() ;
+            return false;
+         }
+         
+         return( true );
+      }
+</script>
+</body>
+</html>
